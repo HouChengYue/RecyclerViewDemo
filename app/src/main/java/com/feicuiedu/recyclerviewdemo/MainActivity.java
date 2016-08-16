@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.feicuiedu.recyclerviewdemo.demoAbase.DemoListActivity;
+import com.feicuiedu.recyclerviewdemo.demoBRefresh.DemoRefreshActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,7 +22,7 @@ import butterknife.OnItemClick;
 // 4. 指定位置更新
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.listView)ListView listView;
+    @Bind(R.id.listView) ListView listView;
 
     private ArrayAdapter<String> adapter;
 
@@ -32,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         String[] datas = {
-          "基本运用demo"
+                "基本运用Demo",
+                "带下拉刷新及上拉加载Demo"
         };
+
         adapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -42,12 +45,15 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
-    @OnItemClick(R.id.listView)
-    void onItemClick(int position){
+    @OnItemClick(R.id.listView) void onItemClick(int position) {
         Intent intent = new Intent();
-        switch (position){
+        switch (position) {
             case 0:
                 intent.setClass(this, DemoListActivity.class);
+                startActivity(intent);
+                break;
+            case 1:
+                intent.setClass(this, DemoRefreshActivity.class);
                 startActivity(intent);
                 break;
         }

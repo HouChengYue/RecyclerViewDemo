@@ -20,6 +20,9 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.DemoViewHo
 
     private final ArrayList<String> datas = new ArrayList<>();
 
+    public void clear(){
+        datas.clear();
+    }
     public void addItems(String data) {
         datas.add(data);
     }

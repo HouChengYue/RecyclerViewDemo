@@ -17,6 +17,8 @@
         </activity>
         <activity android:name=".demoAbase.DemoListActivity">
         </activity>
+        <activity android:name=".demoBRefresh.DemoRefreshActivity">
+        </activity>
     </application>
 
 </manifest>
